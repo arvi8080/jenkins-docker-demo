@@ -1,3 +1,3 @@
 FROM alpine:latest
 
-CMD ["echo", "Hello from my Jenkins-built Docker image!"]
+CMD ["sh", "-c", "echo 'Hello from my Jenkins-built Docker image!'"]

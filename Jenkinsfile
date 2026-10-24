@@ -22,5 +22,14 @@ pipeline {
                 sh 'docker run --rm jenkins-demo:${BUILD_NUMBER}'
             }
         }
+
+        stage('Test') {
+            steps {
+                sh '''
+                output=$(docker run --rm jenkins-demo:${BUILD_NUMBER})
+                test "$output" = "Hello from my Jenkins-built Docker image!"
+                '''
+            }
+        }
     }
 }

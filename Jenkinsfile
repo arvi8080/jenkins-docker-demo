@@ -13,13 +13,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t jenkins-demo:1.0 .'
+                sh 'docker build -t jenkins-demo:${BUILD_NUMBER} .'
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh 'docker run --rm jenkins-demo:1.0'
+                sh 'docker run --rm jenkins-demo:${BUILD_NUMBER}'
             }
         }
     }
